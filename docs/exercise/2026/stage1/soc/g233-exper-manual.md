@@ -143,7 +143,7 @@ gdb -ex "target remote :1234" build/qemu-system-riscv64
 | --- | --- |
 | 源码路径 | `tests/gevico/qtest/test-board-g233.c` |
 | 功能描述 | 验证 G233 Board 基本工作，包括 CPU 启动、内存映射、MMIO 总线连通性 |
-| 基础代码 | `hw/riscv/g233.c`（需补全） |
+| 基础代码 | `hw/riscv/g233.c`（已完成） |
 | 详细规格 | [G233 SoC 硬件手册][5] §3-§5 |
 
 ### 实验二 test-gpio-basic

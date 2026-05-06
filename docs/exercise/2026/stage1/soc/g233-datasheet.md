@@ -324,7 +324,8 @@ GPIO 基地址：`0x1001_2000`。
 2. 配置 `GPIO_POL[N]` 选择触发极性（`0` 低/下降、`1` 高/上升）。
 3. 置位 `GPIO_IE[N]` 使能中断。
 4. 中断发生后，读 `GPIO_IS` 确认触发引脚，向对应位写 `1` 清除 GPIO 侧中断标志。
-5. 注意：清除 `GPIO_IS` 不会自动清除 PLIC 侧的 pending 位。软件还需在 PLIC 侧执行 claim/complete 流程（见 §5.3）以清除对应 IRQ 的 pending。
+5. 注意：当 `GPIO_TRIG[N]` 选择电平触发时，向 `GPIO_OUT[N]` 写入 `~GPIO_POL[N]` 后，GPIO 应当清空对应的 `GPIO_IS[N]` 状态位。
+6. 注意：清除 `GPIO_IS` 不会自动清除 PLIC 侧的 pending 位。软件还需在 PLIC 侧执行 claim/complete 流程（见 §5.3）以清除对应 IRQ 的 pending。
 
 ## 8. PWM 控制器
 
